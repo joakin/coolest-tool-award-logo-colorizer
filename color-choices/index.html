@@ -3,56 +3,90 @@
   <head>
     <title>Coolest Tool Award Logo Color Samples</title>
     <style>
-      #controls {
+      #previous-logos {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 1em;
+        border-bottom: 20px solid #eee;
       }
-      #controls > * {
-        margin: 0 10px;
+      #previous-logos > article > img {
+        max-height: 25vh;
+      }
+
+      #potential-logos {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        max-width: 95vw;
+      }
+      #potential-logos > article > img {
+        max-height: 40vh;
+      }
+
+      article > h2 {
+        text-align: center;
       }
     </style>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        toggleSVGMaxWidthCheckbox.addEventListener("change", () => {
-          toggleSVGMaxWidth();
-        });
-      });
+        let potentialLogos = [
+          "./Coolest Tool Award Logo (9).svg",
+          "./Coolest Tool Award Logo (8).svg",
+          "./Coolest Tool Award Logo (7).svg",
+          "./Coolest Tool Award Logo (6).svg",
+          "./Coolest Tool Award Logo (5).svg",
+          "./Coolest Tool Award Logo (4).svg",
+          "./Coolest Tool Award Logo (2).svg",
+          "./Coolest Tool Award Logo (1).svg",
+        ];
 
-      function toggleSVGMaxWidth() {
-        for (let svg of document.querySelectorAll("img")) {
-          let maxWidth = "95vw";
-          if (svg.style.maxWidth === maxWidth) {
-            svg.style.maxWidth = "";
-            svg.style.maxHeight = "";
-          } else {
-            svg.style.maxWidth = maxWidth;
-            svg.style.maxHeight = "95vh";
-          }
-        }
-      }
+        let html = "";
+        potentialLogos.forEach((logo, i) => {
+          html += `
+          <article>
+            <h2><a href="${logo}">⤢</a>${i + 1}</h2>
+            <img src="${logo}" />
+          </article>
+          `;
+        });
+        document.querySelector("#potential-logos").innerHTML = html;
+      });
     </script>
   </head>
   <body>
-    <div id="controls">
-      <label for="toggleSVGMaxWidthCheckbox">
-        <input id="toggleSVGMaxWidthCheckbox" type="checkbox" />
-        Toggle SVG max width
-      </label>
-    </div>
-    <h2 id="l0"><a href="#l0">#</a> 0</h2>
-    <img src="./Coolest Tool Award Logo (0).svg" />
-    <h2 id="l1"><a href="#l1">#</a> 1</h2>
-    <img src="./Coolest Tool Award Logo (1).svg" />
-    <h2 id="l2"><a href="#l2">#</a> 2</h2>
-    <img src="./Coolest Tool Award Logo (2).svg" />
-    <h2 id="l3"><a href="#l3">#</a> 3</h2>
-    <img src="./Coolest Tool Award Logo (3).svg" />
-    <h2 id="l4"><a href="#l4">#</a> 4</h2>
-    <img src="./Coolest Tool Award Logo (4).svg" />
-    <h2 id="l5"><a href="#l5">#</a> 5</h2>
-    <img src="./Coolest Tool Award Logo (5).svg" />
-    <h2 id="l6"><a href="#l6">#</a> 6</h2>
-    <img src="./Coolest Tool Award Logo (6).svg" />
+    <section id="previous-logos">
+      <article>
+        <h2>2019</h2>
+        <img src="./Coolest Tool Award Logo (0).svg" />
+      </article>
+      <article>
+        <h2>2020</h2>
+        <img src="./Coolest Tool Award Logo (3).svg" />
+      </article>
+    </section>
+    <section id="potential-logos">
+      <article>
+        <h2 id="l1"><a href="#l1">#</a> 1</h2>
+        <img src="./Coolest Tool Award Logo (1).svg" />
+      </article>
+      <article>
+        <h2 id="l2"><a href="#l2">#</a> 2</h2>
+        <img src="./Coolest Tool Award Logo (2).svg" />
+      </article>
+      <article>
+        <h2 id="l4"><a href="#l4">#</a> 4</h2>
+        <img src="./Coolest Tool Award Logo (4).svg" />
+      </article>
+      <article>
+        <h2 id="l5"><a href="#l5">#</a> 5</h2>
+        <img src="./Coolest Tool Award Logo (5).svg" />
+      </article>
+      <article>
+        <h2 id="l6"><a href="#l6">#</a> 6</h2>
+        <img src="./Coolest Tool Award Logo (6).svg" />
+      </article>
+    </section>
   </body>
 </html>
